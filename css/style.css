@@ -1,0 +1,71 @@
+body { background-color: rgb(42,125,191); }
+
+#map {
+	margin-top   : 115px;
+	margin-bottom: 20px;
+}
+
+.navbar-fixed-top {
+	background-image   : url('../img/lejeu.png');
+	background-repeat  : no-repeat;
+	background-position: 340px 25px;
+	height: 120px;
+}
+
+/* SIDENAV (PRISON)
+---------------------------------------------------------------------------- */
+
+.sidenav {
+    width : 0;
+	height: 100%;
+    position: fixed;
+    z-index: 1;
+	top  : 116px;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	background-color   : #111;
+	background-image   : url('../img/mbox.png');
+	background-repeat  : no-repeat;
+	background-position: 0 40px;
+	text-align: center;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus { color: #f1f1f1; }
+
+.sidenav .closebtn {
+    position: absolute;
+    top  : 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+/* Styles pour Google Maps
+   -------------------------------------------------------------------------- */
+
+    html, body {
+		margin : 0;
+        padding: 0;
+        height : 100%;
+    }
+
+    #map { height: 500px; }
+
+/* -------------------------------------------------------------------------- */

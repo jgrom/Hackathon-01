@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Zootopia :: Le jeu</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"><!-- Bootstrap styles -->
+	<link rel="stylesheet" href="css/style.css">        <!-- Custom    styles -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+	<!-- NAVBAR
+	************************************************************************ -->
+
+	<nav class="navbar navbar-default navbar-fixed-top"  style="padding:20px;">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#"><img class="pull-left" src="img/logo_2.png"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="nav navbar-nav navbar-right">
+					<button id="drop" onclick="drop()" class="btn btn-primary navbar-btn" style="font-size:30px;">
+						<img src="img/localize.png"/> Localiser
+					</button>
+					<button type="button" class="btn btn-warning navbar-btn" style="font-size:30px; color:black" onclick="openNav()">
+						<img src="img/prison.png"/> Prison
+					</button>
+				</div>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<!-- SIDEBAR (PRISON)
+	******************************************************************* -->
+
+	<div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#" onclick="$('#mod18').modal('toggle');"><img class="img-thumbnail" src="img/char_tb_gideon-grey.jpg" /></a>
+      <a href="#" onclick="$('#mod32').modal('toggle');"><img class="img-thumbnail" src="img/char_tb_nick-wilde.jpg" /></a>
+	</div>
+
+	<!-- CARTE GOOGLE MAPS
+    ******************************************************************* -->
+	<div id="map"></div>
+
+	<div id="content" class="container-fluid">
+
+		<div id="icontent" class="row">
+
+			<!-- Char 1-->
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<div class="thumbnail text-center">
+				<img src="img/char_bellwether.jpg" alt="" class="responsive">
+				<div class="caption">
+					<h3>Bellwether</h3>
+					<p>Assistante du Maire</p>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Plus de détail</button>
+				</div>
+				</div>
+			</div>
+
+			<div id="mod1" class="modal fade char1" tabindex="-1" role="dialog" aria-labelledby="char1">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="thumbnail text-center">
+							<img src="img/char_bellwether.jpg" width="100%" alt="" class="responsive">
+							<div class="caption">
+								<p class="alert alert-info">Bellwether, de son nom complet Dawn Bellwether,  est l’assistante du maire Lionheart de la ville de Zootopie. C’est un petit mouton débordant de gentillesse qui n’hésite pas à aider Nick et Judy dans leur enquête.
+								Lors de la déchéance de Lionheart, elle prend sa place en tant que maire. Bellwether avait tout planifié depuis le début et elle est la responsable des animaux disparus redevenus sauvages. Elle avait pour ambition de mettre les « proies » au pouvoir. </p>
+								<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+									<img src="img/search.png" width="50%" height="50%" />&nbsp;Rechercher
+								</a>
+							</div>
+
+							<div class="bs-example" data-example-id="striped-table">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<th scope="row">Race</th>
+											<td>Mouton</td>
+										</tr>
+										<tr>
+											<th scope="row">Âge</th>
+											<td>20 ans</td>
+										</tr>
+										<tr>
+											<th scope="row">Nom</th>
+											<td>Bellwether</td>
+										</tr>
+										<tr>
+											<th scope="row">Métier</th>
+											<td>Assitante du Maire</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<!-- Char 2 -->
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<div class="thumbnail text-center">
+						<img src="img/char_benjamin-clawhauser.jpg" class="responsive">
+						<div class="caption">
+							<h3>Benjamin Clawhauser</h3>
+							<p>Agent d'accueil du commissariat</p>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char2"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div id="mod2" class="modal fade char2" tabindex="-1" role="dialog" aria-labelledby="char2">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="thumbnail text-center">
+								<img src="img/char_benjamin-clawhauser.jpg" width="100%" alt="" class="responsive">
+								<div class="caption">
+									<p class="alert alert-info">L’officier Clawhauser est l’agent d’accueil du commissariat de Zootopie. Ce gros guépard raffole des donuts et est fan de Gazelle. Il est toujours souriant et déborde de gentillesse.
+										Il est cependant transférer aux archives avec l’arrivée du nouveau maire avant de pouvoir retrouver sa place plus tard.</p>
+									<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+										<img src="img/patrol.png" width="50%" height="50%" />&nbsp;Patrouiller
+									</a>
+								</div>
+
+
+								<div class="bs-example" data-example-id="striped-table">
+									<table class="table table-striped">
+										<tbody>
+											<tr>
+												<th scope="row">Race</th>
+												<td>Guépard</td>
+											</tr>
+											<tr>
+												<th scope="row">Âge</th>
+												<td>31 ans</td>
+											</tr>
+											<tr>
+												<th scope="row">Nom</th>
+												<td>Benjamin Clawhauser</td>
+											</tr>
+											<tr>
+												<th scope="row">Métier</th>
+												<td>Agent d'accueil du commisariat</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+					<!-- Char 3 -->
+
+					<div class="col-sm-6 col-md-4 col-lg-3">
+						<div class="thumbnail text-center">
+							<img src="img/char_bonnie-stuart-hopps.jpg" alt="" class="responsive">
+							<div class="caption">
+								<h3>Bonnie & Stuart Hopps</h3>
+								<p>Parent de Judy</p>
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char3"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+							</div>
+						</div>
+					</div>
+
+    				<div id="mod3" class="modal fade char3" tabindex="-1" role="dialog" aria-labelledby="char3">
+    					<div class="modal-dialog modal-lg" role="document">
+    						<div class="modal-content">
+    							<div class="thumbnail text-center">
+    								<img src="img/char_bonnie-stuart-hopps.jpg" width="100%" alt="" class="responsive">
+    								<div class="caption">
+    									<p class="alert alert-info">Bonnie et Stuart Hopps sont les parents de Judy et ils ont près de deux cents enfants. Dès son enfance, ils la dissuadent de vouloir réaliser son rêve de devenir policière.
+											Lorsqu’elle réussit à atteindre son objectif adulte, ils s’inquiètent grandement et sont soulagés quand ils découvrent qu’elle est contractuelle.
+											Judy revient vivre chez eux après sa démission. Bonnie et Stuart Hopps la réconfortent et lui apprennent accidentellement un élément clé de son enquête.</p>
+    									<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+    										<img src="img/search.png" width="50%" height="50%" />&nbsp;Rechercher
+    									</a>
+    								</div>
+
+
+    								<div class="bs-example" data-example-id="striped-table">
+    									<table class="table table-striped">
+    										<tbody>
+    											<tr>
+    												<th scope="row">Race</th>
+    												<td>Lapin</td>
+    											</tr>
+    											<tr>
+    												<th scope="row">Âge</th>
+    												<td>76 ans</td>
+    											</tr>
+    											<tr>
+    												<th scope="row">Nom</th>
+    												<td>Bonnie & Stuart Hopps</td>
+    											</tr>
+    											<tr>
+    												<th scope="row">Métier</th>
+    												<td>Parents de Judy</td>
+    											</tr>
+    										</tbody>
+    									</table>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+
+						<!-- Char 4 -->
+
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<div class="thumbnail text-center">
+								<img src="img/char_bucky-pronk-oryx-antlerson.jpg" class="responsive">
+								<div class="caption">
+									<h3>Bucky & Pronk Oryx-Antlerson</h3>
+									<p> Voisin de Judy</p>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char4"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+								</div>
+							</div>
+						</div>
+
+                        <div id="mod4" class="modal fade char4" tabindex="-1" role="dialog" aria-labelledby="char4">
+        					<div class="modal-dialog modal-lg" role="document">
+        						<div class="modal-content">
+        							<div class="thumbnail text-center">
+        								<img src="img/char_bucky-pronk-oryx-antlerson.jpg" width="100%" alt="" class="responsive">
+        								<div class="caption">
+        									<p class="alert alert-info">Bucky et Pronk Oryx-Antlerson sont les deux voisins de Judy. Ils sont de nature bruyante et se disputent facilement.</p>
+        									<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+        										<img src="img/search.png" width="50%" height="50%" />&nbsp;Rechercher
+        									</a>
+        								</div>
+
+
+        								<div class="bs-example" data-example-id="striped-table">
+        									<table class="table table-striped">
+        										<tbody>
+        											<tr>
+        												<th scope="row">Race</th>
+        												<td>Oryx</td>
+        											</tr>
+        											<tr>
+        												<th scope="row">Âge</th>
+        												<td>32 ans</td>
+        											</tr>
+        											<tr>
+        												<th scope="row">Nom</th>
+        												<td>Bucky & Pronk Oryx-Antlerson</td>
+        											</tr>
+        											<tr>
+        												<th scope="row">Métier</th>
+        												<td>Voisin de Judy</td>
+        											</tr>
+        										</tbody>
+        									</table>
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        				</div>
+
+
+						<!-- Char 5 -->
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<div class="thumbnail text-center">
+								<img src="img/char_delchaton.jpg" alt="" class="responsive">
+								<div class="caption">
+									<h3>Delchaton</h3>
+									<p>Officier de police</p>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char5"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal fade char5" tabindex="-1" role="dialog" aria-labelledby="char5">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="thumbnail text-center">
+										<div class="caption">
+											<p>Delchaton est un lion et un officier de police chargé de retrouver les animaux disparus.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Char 6 -->
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<div class="thumbnail text-center">
+								<img src="img/char_dharma-armadillo.jpg" alt="" class="responsive">
+								<div class="caption">
+									<h3>Dharma Armadillo</h3>
+									<p>Lorem ipsum dolor</p>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char6"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal fade char6" tabindex="-1" role="dialog" aria-labelledby="char6">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="thumbnail text-center">
+										<div class="caption">
+											<p>Dharma Armadillo est un tatou et elle est la logeuse de l’appartement de Judy.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Cha7 -->
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<div class="thumbnail text-center">
+								<img src="img/char_doug.jpg" alt="" class="responsive">
+								<div class="caption">
+									<h3>Doug</h3>
+									<p>Chimiste</p>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char7"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+								</div>
+							</div>
+						</div>
+
+
+						<div id="mod7" class="modal fade char7" tabindex="-1" role="dialog" aria-labelledby="char7">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="thumbnail text-center">
+										<img src="img/char_doug.jpg" width="100%" alt="" class="responsive">
+										<div class="caption">
+											<p class="alert alert-info">Doug est le chimiste qui fabrique le produit rendant leur instinct sauvage aux animaux.</p>
+											<a href="#" class="btn btn-success" style="font-size:30px" role="button" onclick="document.getElementById('result').style.visibility='visible';">
+												<img src="img/capture.png" width="50%" height="50%" />&nbsp;Capturer
+											</a>
+                                            <h1 id="result" style="color:red; visibility: hidden;">ÉCHEC DE LA CAPTURE</h1>
+										</div>
+
+
+										<div class="bs-example" data-example-id="striped-table">
+											<table class="table table-striped">
+												<tbody>
+													<tr>
+														<th scope="row">Race</th>
+														<td>Mouton</td>
+													</tr>
+													<tr>
+														<th scope="row">Âge</th>
+														<td>34 ans</td>
+													</tr>
+													<tr>
+														<th scope="row">Nom</th>
+														<td>Doug</td>
+													</tr>
+													<tr>
+														<th scope="row">Métier</th>
+														<td>Chimiste</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Char 8 -->
+						<div class="col-sm-6 col-md-4 col-lg-3">
+							<div class="thumbnail text-center">
+								<img src="img/char_duke-weaselton.jpg" class="responsive">
+								<div class="caption">
+									<h3>Duke Weaselton</h3>
+									<p>Informateur</p>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char8"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal fade char8" tabindex="-1" role="dialog" aria-labelledby="char8">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="thumbnail text-center">
+										<div class="caption">
+											<p>Duke Weaselton est une belette qui commet un vol mais qui se fait capturer par Judy après une course-poursuite.
+												Elle le retrouve plus tard en train de vendre des films piratés où elle va lui demander des informations pour son enquête.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Char 9 -->
+
+							<div class="col-sm-6 col-md-4 col-lg-3">
+								<div class="thumbnail text-center">
+									<img src="img/char_emmett-otterton.jpg" alt="" class="responsive">
+									<div class="caption">
+										<h3>Emmitt Otterton</h3>
+										<p>Disparu</p>
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char9"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> plus de détail</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal fade char9" tabindex="-1" role="dialog" aria-labelledby="char9">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="thumbnail text-center">
+											<div class="caption">
+												<p>Emmitt Otterton est l’un des animaux portés disparus. Judy a pour mission de le retrouver.
+													Il est enfermé dans une sorte d’asile où il est redevenu sauvage et violent suite à une injection d’un produit. Il sera guérit et il retrouve ainsi sa femme Madame Otterton.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Char 10 -->
+
+								<div class="col-sm-6 col-md-4 col-lg-3">
+									<div class="thumbnail text-center">
+										<img src="img/char_fabienne-growley.jpg" alt="" class="responsive">
+										<div class="caption">
+											<h3>Fabienne Growley</h3>
+											<p>Journaliste sur ZNN</p>
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char10"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="modal fade char10" tabindex="-1" role="dialog" aria-labelledby="char10">
+									<div class="modal-dialog modal-lg" role="document">
+										<div class="modal-content">
+											<div class="thumbnail text-center">
+												<div class="caption">
+													<p>Fabienne Growley est un léopard des neiges et elle est journaliste sur ZNN.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Char 11 -->
+								<div class="col-sm-6 col-md-4 col-lg-3">
+									<div class="thumbnail text-center">
+										<img src="img/char_finnick.jpg" width="100%" alt="" class="responsive">
+										<div class="caption">
+											<h3>Finnick</h3>
+											<p>Chauffeur</p>
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char11"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="modal fade char11" tabindex="-1" role="dialog" aria-labelledby="char11">
+									<div class="modal-dialog modal-lg" role="document">
+										<div class="modal-content">
+											<div class="thumbnail text-center">
+												<div class="caption">
+													<p>Finnick est un fennec qui est le partenaire de Nick dans ses arnaques. Il interprète un bébé qui rêve de devenir un éléphant.
+														Il conduit une camionnette et vient en aide à Judy quand elle recherche Nick.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Char 12 -->
+									<div class="col-sm-6 col-md-4 col-lg-3">
+										<div class="thumbnail text-center">
+											<img src="img/char_flash.jpg" alt="" class="responsive">
+											<div class="caption">
+												<h3>Flash</h3>
+												<p>Fonctionnaire</p>
+												<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char12"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="modal fade char12" tabindex="-1" role="dialog" aria-labelledby="char12">
+										<div class="modal-dialog modal-lg" role="document">
+											<div class="modal-content">
+												<div class="thumbnail text-center">
+													<div class="caption">
+														<p>Flash, de son nom complet Flash Slothmore, est un paresseux qui travaille au département d’immatriculation des véhicules. Il est extrêmement lent et il est ami avec Nick.
+															Il se fait arrêter par Nick et Judy, tous deux policiers, pour excès de vitesse dans sa voiture de sport.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 13 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_francine.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Francine Pennington</h3>
+													<p>Agent de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char13"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char13" tabindex="-1" role="dialog" aria-labelledby="char13">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<img src="img/char_francine.jpg" alt="" class="responsive">
+														<div class="caption">
+															<p>Francine Pennington est une éléphante et une agent de police qui fête son anniversaire le premier jour de travail de Judy.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Char 14 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_fru-fru.jpg" class="responsive">
+												<div class="caption">
+													<h3>Fru Fru</h3>
+													<p>La fille de Mister Big</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char14"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char14" tabindex="-1" role="dialog" aria-labelledby="char14">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<img width="100%" src="img/char_fru-fru.jpg" class="responsive">
+														<div class="caption">
+															<p>Fru Fru est la fille de Mister Big. Lorsqu’elle fait ses courses, elle manque de se faire écraser par une statue mais elle est sauvée à la dernière seconde par Judy.
+															Le jour de son mariage, elle va sauver Nick et Judy lorsque son père décide de les tuer.
+															Fru Fru demande à Judy de devenir la marraine de ses enfants.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Char 15 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_gareth.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Gareth</h3>
+													<p>Idéal si vous avez des champignons !</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char15"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> More detail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char15" tabindex="-1" role="dialog" aria-labelledby="char15">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Gareth est un petit mouton blanc qui est le frère de Sharla.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 16 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_gary.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Gary</h3>
+													<p>Gardien de l'asile</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char16"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char16" tabindex="-1" role="dialog" aria-labelledby="char16">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Gary est et un loup et l’un des gardiens de l’Asile qui se met à hurler lorsqu’il entend un hurlement.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 17 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_gazelle.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Gazelle</h3>
+													<p>Chanteuse</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char17"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char17" tabindex="-1" role="dialog" aria-labelledby="char17">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Gazelle est une célèbre chanteuse de Zootopie qui milite pour la paix entre les prédateurs et les proies.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 18 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_gideon-grey.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Gideon Grey</h3>
+													<p>Boulanger itinérant</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char18"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+                                        <div id="mod18" class="modal fade char18" tabindex="-1" role="dialog" aria-labelledby="char18">
+                            				<div class="modal-dialog modal-lg" role="document">
+                            					<div class="modal-content">
+                            						<div class="thumbnail text-center">
+                            							<img src="img/char_gideon-grey.jpg" width="100%" alt="" class="responsive">
+                            							<div class="caption">
+                            								<p class="alert alert-info">Gideon Grey est un renard méchant qui embête les enfants en voulant voler leurs tickets de loterie. Il va se battre avec Judy pour lui donner une correction.
+															Devenu adulte, Gideon Grey se veut plus calme et regrette son enfance. Il est devenu boulanger itinérant.</p>
+                            								<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+                            									<img src="img/free.png" width="50%" height="50%" />&nbsp;Libérer
+                            								</a>
+                            							</div>
+
+
+                            							<div class="bs-example" data-example-id="striped-table">
+                            								<table class="table table-striped">
+                            									<tbody>
+                            										<tr>
+                            											<th scope="row">Race</th>
+                            											<td>Renard</td>
+                            										</tr>
+                            										<tr>
+                            											<th scope="row">Âge</th>
+                            											<td>33 ans</td>
+                            										</tr>
+                            										<tr>
+                            											<th scope="row">Nom</th>
+                            											<td>Gideon Grey</td>
+                            										</tr>
+                            										<tr>
+                            											<th scope="row">Métier</th>
+                            											<td>Boulanger itinérant</td>
+                            										</tr>
+                            									</tbody>
+                            								</table>
+                            							</div>
+                            						</div>
+                            					</div>
+                            				</div>
+                            			</div>
+
+
+										<!-- Char 19 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_grizzoli.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Grizzoli</h3>
+													<p>Officier de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char19"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char19" tabindex="-1" role="dialog" aria-labelledby="char19">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Grizzoli est un loup blanc chargé de retrouver les animaux disparus.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Char 20 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_gromaire.jpg" class="responsive">
+												<div class="caption">
+													<h3>Gromayer</h3>
+													<p>Officier de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char20"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char20" tabindex="-1" role="dialog" aria-labelledby="char20">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Gromayer est un tigre du Bengale chargé de retrouver les animaux disparus.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 21 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_higgins.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Higgins</h3>
+													<p>Officier de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char21"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+
+
+										<div id="mod21" class="modal fade char21" tabindex="-1" role="dialog" aria-labelledby="char21">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<img src="img/char_higgins.jpg" width="100%" alt="" class="responsive">
+														<div class="caption">
+															<p class="alert alert-info">Higgins est un hippopotame et un officier de police.</p>
+															<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+                                                                <img src="img/patrol.png" width="50%" height="50%" />&nbsp;Patrouiller
+															</a>
+														</div>
+
+														<div class="bs-example" data-example-id="striped-table">
+															<table class="table table-striped">
+																<tbody>
+																	<tr>
+																		<th scope="row">Race</th>
+																		<td>Hippopotame</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Âge</th>
+																		<td>55 ans</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Nom</th>
+																		<td>Higgins</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Métier</th>
+																		<td>Officier de police</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 22 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_jaguar.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Jaguar (Bobby Catmull)</h3>
+													<p>Comédien de théatre</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char22"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de detail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char22" tabindex="-1" role="dialog" aria-labelledby="char22">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Jaguar est un des comédiens de la pièce de théâtre qui rêve de devenir inspecteur des impôts.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 23 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_judy-hopps.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Judy Hopps</h3>
+													<p>Officier de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char23"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+
+										<div id="mod23" class="modal fade char23" tabindex="-1" role="dialog" aria-labelledby="char23">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<img src="img/char_judy-hopps.jpg" width="100%" alt="" class="responsive">
+														<div class="caption">
+															<p class="alert alert-info">Judy Hopps est une jeune lapine qui depuis toute petite veut devenir policier, malgré l’inquiétude de ses parents Bonnie et Stuart. Elle se donne beaucoup de mal pour passer le recrutement et parvient à devenir la première lapine policière de Zootopie.</p>
+															<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+																<img src="img/patrol.png" width="50%" height="50%" />&nbsp;Patrouiller
+															</a>
+														</div>
+
+
+														<div class="bs-example" data-example-id="striped-table">
+															<table class="table table-striped">
+																<tbody>
+																	<tr>
+																		<th scope="row">Race</th>
+																		<td>Lapin</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Âge</th>
+																		<td>25 ans</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Nom</th>
+																		<td>Judy Hopps</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Métier</th>
+																		<td>Officier de police</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 24 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_kozlov.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Koslov</h3>
+													<p>Homme de main de Mister Big</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char24"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+
+
+										<div id="mod24" class="modal fade char24" tabindex="-1" role="dialog" aria-labelledby="char24">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<img width="100%" src="img/char_kozlov.jpg" alt="" class="responsive">
+														<div class="caption">
+															<p class="alert alert-info">BellwetKoslov est un grand ours polaire qui porte Mister Big lors de ses déplacements.</p>
+															<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+																<img src="img/capture.png" width="50%" height="50%" />&nbsp;Capturer
+															</a>
+														</div>
+
+
+														<div class="bs-example" data-example-id="striped-table">
+															<table class="table table-striped">
+																<tbody>
+																	<tr>
+																		<th scope="row">Race</th>
+																		<td>Ours polaire</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Âge</th>
+																		<td>37 ans</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Nom</th>
+																		<td>Koslov</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Métier</th>
+																		<td>Homme de main de Mister Big</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 25 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_larry.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Larry</h3>
+													<p>Gardien de l'asile</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char25"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char925" tabindex="-1" role="dialog" aria-labelledby="char25">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Larry est et un loup et l’un des gardiens de l’Asile qui se met à hurler lorsqu’il entend un hurlement.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 26 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_chef-bogo.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Chef Bogo</h3>
+													<p>Sergent de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char26"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char26" tabindex="-1" role="dialog" aria-labelledby="char26">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Le Chef Bogo est le sergent de police de la ville de Zootopie. Il est de nature imposante et autoritaire, répétant régulièrement « on s’en cogne ». Il va accueillir Judy Hopps pour qui il n’a aucune reconnaissance et il la place au poste de contractuelle.
+															Lorsqu’elle décide de prendre une enquête, le Chef Bogo lui donne 48 heures pour la mener à bien sinon elle devra démissionner.
+															Il va recroiser sa route lors de l’enquête où elle avait appelé des renforts, lui demandant de rendre son insigne. Grâce à Nick qui vient à son secours, Judy a encore du répit.
+															Le Chef Bogo félicitera Judy qui aura finalement réussit à mener à bien son enquête en débusquant le coupable. Il accueille par la suite Nick comme le premier renard dans la police.
+															Il est également un fan de Gazelle.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 27 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_loufard.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Loufard</h3>
+													<p>Officier de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char27"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char27" tabindex="-1" role="dialog" aria-labelledby="char27">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Loufard est un loup gris chargé de retrouver les animaux disparus.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 28 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_madame-otterton-hopps.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Madame Otterton</h3>
+													<p>Une paire achetée, un elfe de maison libéré</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char28"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char28" tabindex="-1" role="dialog" aria-labelledby="char28">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Madame Otterton est une épouse désespérée de ne pas savoir où se trouve son mari. Judy va mener l’enquête pour elle.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 29 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_maire-leodore-lionheart.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Leodore Lionheart</h3>
+													<p>Aire de Zootopie</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char29"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char29" tabindex="-1" role="dialog" aria-labelledby="char29">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Leodore Lionheart est le maire de Zootopie. Ce lion est fier de la paix qui règne dans sa ville. Il s’inquiète cependant du nombre d’animaux disparus.
+															Nick et Judy vont découvrir que le maire est impliqué dans leur enquête. En effet, Lionheart savait où se trouvait les animaux disparus. Lorsqu’il est appréhendé et déchu de son poste, il annonce qu’il les avait enfermé par sécurité pour la population.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 30 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_mister-big.jpg" class="responsive">
+												<div class="caption">
+													<h3>Mister Big</h3>
+													<p>Chef de la mafia à Toundraville</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char30"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+
+										<div id="mod30" class="modal fade char30" tabindex="-1" role="dialog" aria-labelledby="char30">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<img width="100%" src="img/char_mister-big.jpg" alt="" class="responsive">
+														<div class="caption">
+															<p class="alert alert-info">Mister Big est le chef de la mafia à Toundraville. C’est un petit rongeur protégé par de grands ours polaire. Il s’est fait arnaqué par Nick qui lui a vendu une peau de putois.
+															Lorsqu’il le retrouve sur sa propriété avec Judy, il donne pour ordre de les tuer en les jetant dans l’eau glacé. Ils sont sauvés par sa fille, Fru Fru, qui était sur le point de se marier. Il leur pardonne quand il apprend que Judy est celle qui a sauvé sa fille auparavant.</p>
+															<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+																<img src="img/capture.png" width="50%" height="50%" />&nbsp;Capturer
+															</a>
+														</div>
+
+
+														<div class="bs-example" data-example-id="striped-table">
+															<table class="table table-striped">
+																<tbody>
+																	<tr>
+																		<th scope="row">Race</th>
+																		<td>Musaraigne arctique</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Âge</th>
+																		<td>22 ans</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Nom</th>
+																		<td>Mister Big</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Métier</th>
+																		<td>Chef de la mafia</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 31 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_nangi.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Nangi</h3>
+													<p>Professeur de yoga</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char31"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char31" tabindex="-1" role="dialog" aria-labelledby="char31">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Nanji est une éléphante qui est la professeur de yoga d’Emmett Otterton. Yax vient la voir pour qu’elle témoigne face à Nick et Judy mais elle n’a finalement aucune mémoire.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 32 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_nick-wilde.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Nick Wilde</h3>
+													<p>Luc, je suis ta paire !</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char32"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+                                        <div id="mod32" class="modal fade char32" tabindex="-1" role="dialog" aria-labelledby="char32">
+                            				<div class="modal-dialog modal-lg" role="document">
+                            					<div class="modal-content">
+                            						<div class="thumbnail text-center">
+                            							<img width="100%" src="img/char_nick-wilde.jpg" alt="" class="responsive">
+                            							<div class="caption">
+                            								<p class="alert alert-info">Nick Wilde, de son nom complet Nicholas P. Wilde, est un renard rusé et arnaqueur. Il établit des combines pour se faire de l’argent facile avec son complice Finnick en achetant des glaces pour gros animaux qu’ils reconvertissent en plus petites glaces pour les lemmings. Il croise la route de Judy qui va le mettre face à ses responsabilités de fraude fiscale. Pour y échapper, il est obliger de collaborer avec elle pour l’aider dans son enquête.</p>
+                            								<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+                            									<img src="img/free.png" width="50%" height="50%" />&nbsp;Libérer
+                            								</a>
+                            							</div>
+
+
+                            							<div class="bs-example" data-example-id="striped-table">
+                            								<table class="table table-striped">
+                            									<tbody>
+                            										<tr>
+                            											<th scope="row">Race</th>
+                            											<td>Renard</td>
+                            										</tr>
+                            										<tr>
+                            											<th scope="row">Âge</th>
+                            											<td>27 ans</td>
+                            										</tr>
+                            										<tr>
+                            											<th scope="row">Nom</th>
+                            											<td>Nick Wilde</td>
+                            										</tr>
+                            										<tr>
+                            											<th scope="row">Métier</th>
+                            											<td>Commerçant</td>
+                            										</tr>
+                            									</tbody>
+                            								</table>
+                            							</div>
+                            						</div>
+                            					</div>
+                            				</div>
+                            			</div>
+
+
+										<!-- Char 33 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_mccorne.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3> McCorne</h3>
+													<p>Officier de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char33"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char33" tabindex="-1" role="dialog" aria-labelledby="char33">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Officier McCorne est un rhinocéros qui traque un voleur mais il se fait distancé par Judy.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 34 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_peter-moosebridge.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Peter Moosebridge</h3>
+													<p>Journaliste sur ZNN</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char34"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char34" tabindex="-1" role="dialog" aria-labelledby="char34">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Peter Moosebridge est un caribou et journaliste sur ZNN.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Char 35 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_priscilla.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Priscilla Tripletoe</h3>
+													<p>Fonctionnaire</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char35"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char35" tabindex="-1" role="dialog" aria-labelledby="char35">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Priscilla Tripletoe est un paresseux qui travaille au département d’immatriculation des véhicules.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Char 36 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_raymond-michel.jpg" class="responsive">
+												<div class="caption">
+													<h3>Raymond et Michel</h3>
+													<p>Hommes de main de Mr Big</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char36"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+
+
+										<div id="mod36" class="modal fade char36" tabindex="-1" role="dialog" aria-labelledby="char36">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<img width="100%" src="img/char_raymond-michel.jpg" alt="" class="responsive">
+														<div class="caption">
+															<p class="alert alert-info">Raymond et Michel sont des ours polaires qui travaillent pour Mister Big. Ils trouvent Nick et Judy dans sa limousine et les capturent.</p>
+															<a href="#" class="btn btn-success" style="font-size:30px" role="button">
+																<img src="img/capture.png" width="50%" height="50%" />&nbsp;Capturer
+															</a>
+														</div>
+
+
+														<div class="bs-example" data-example-id="striped-table">
+															<table class="table table-striped">
+																<tbody>
+																	<tr>
+																		<th scope="row">Race</th>
+																		<td>Ours polaire</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Âge</th>
+																		<td>40 ans</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Nom</th>
+																		<td>Raymond & Michel</td>
+																	</tr>
+																	<tr>
+																		<th scope="row">Métier</th>
+																		<td>Homme de main de Mister Big</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Char 37 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_monsieur-manchas.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Renato Manchas</h3>
+													<p>Le chasseur</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char37"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char37" tabindex="-1" role="dialog" aria-labelledby="char37">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Renato Manchas est une panthère qui s’est faite attaquer par Emmett Otterton.
+															Il va tenter de répondre aux questions de Nick et Judy mais il va à son tour devenir sauvage et les prendre en chasse.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 38 -->
+
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_rugis.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Rugis</h3>
+													<p>Officier de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char38"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char38" tabindex="-1" role="dialog" aria-labelledby="char38">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Rugis est un ours polaire chargé de retrouver les animaux disparus.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 39 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_instructeur.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Sergent Instructeur</h3>
+													<p>Sergent de police</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char39"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char39" tabindex="-1" role="dialog" aria-labelledby="char39">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Sergent Instructeur est une ourse polaire qui a pour objectif d’entraîner les futures recrues de la police, dont Judy.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Char 40 -->
+										<div class="col-sm-6 col-md-4 col-lg-3">
+											<div class="thumbnail text-center">
+												<img src="img/char_sharla.jpg" alt="" class="responsive">
+												<div class="caption">
+													<h3>Sharla</h3>
+													<p>Une paire achetée, un elfe de maison libéré</p>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".char40"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Plus de détail</button>
+												</div>
+											</div>
+										</div>
+
+										<div class="modal fade char40" tabindex="-1" role="dialog" aria-labelledby="char40">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+													<div class="thumbnail text-center">
+														<div class="caption">
+															<p>Sharla est un petit mouton qui se fait racketter ses tickets de tombola par Gideon Grey.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<nav class="navbar navbar-default" style="padding:20px;">
+									<div class="container-fluid">
+
+										<!-- Collect the nav links, forms, and other content for toggling -->
+										<ul class="nav navbar-nav">
+											<li><a href="#">Réglement</a></li>
+											<li><a href="#">À propos</a></li>
+											<li><a href="#">Recrutement</a></li>
+											<li><a href="#">Contact</a></li>
+										</ul>
+									</div>
+								</nav>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+		<!-- Google Maps Api -->
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3B2dCQ2T9aJAkpvrRuwN_T1pmiVIjOEg&signed_in=true&callback=initMap"></script>
+
+		<script src="js/script.js"></script>
+
+</body>
+</html>
